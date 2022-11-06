@@ -1,0 +1,18 @@
+Requirement :
+
+Refactor given Monolith UdaConnect app to a Microservices UdaConnect app using 3 message-passing strategies.
+
+Solution :
+
+Three message-passing strategies were implemented for the purpose of refactoring - 
+1. REST
+2. gRPC
+3. Apache Kafka
+
+How :
+
+The UdaConnect monolithic architecture was first refactored into separate Restful based microservices - person, connection and location.
+A new location endpoint exposed via gRPC was created to pass messages to Apache Kafka which will be responsible for persisting data in 
+the database.
+This could potentially aid in scaling for more data since location data is a continuous stream of information collected during a conference.
+Apache Kafka performs very well when it comes to real-time streaming, and hence is optimal for this use case.
