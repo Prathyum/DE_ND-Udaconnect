@@ -1,0 +1,128 @@
+{
+	"id": "f41cfb1d-15fb-41d6-b7c5-f80dcc571416",
+	"name": "Udaconnect",
+	"timestamp": "2022-11-18T19:17:58.994Z",
+	"collection_id": "24509492-5f070861-6236-470d-acc1-c15d79e70421",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "2804a4ca-2d71-4030-a9ee-68088d5a94eb",
+			"name": "Person API - GET Request doc",
+			"url": "http://localhost:30004/api/persons",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				13
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d1c9e5ab-da81-4439-8830-a7b4ebafcd35",
+			"name": "Person API - POST Request doc",
+			"url": "http://localhost:30004/api/persons",
+			"time": 27,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				27
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "27c51c59-b394-47be-88ed-27e84166f69e",
+			"name": "Location API - GET Request doc",
+			"url": "http://localhost:30002/api/locations",
+			"time": 61,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				61
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0954ada6-ef95-4cba-9665-09ccbcbed593",
+			"name": "Location API - POST Request doc",
+			"url": "http://localhost:30002/api/locations",
+			"time": 30,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				30
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b59bd487-3644-4f7e-9f6e-f77f0e337616",
+			"name": "Connection API - GET Request doc",
+			"url": "http://localhost:30003/api/persons/1/connection?distance=5&end_date=2020-12-30&start_date=2020-01-01",
+			"time": 47,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				47
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 178,
+	"collection": {
+		"requests": [
+			{
+				"id": "2804a4ca-2d71-4030-a9ee-68088d5a94eb",
+				"method": "GET"
+			},
+			{
+				"id": "d1c9e5ab-da81-4439-8830-a7b4ebafcd35",
+				"method": "POST"
+			},
+			{
+				"id": "27c51c59-b394-47be-88ed-27e84166f69e",
+				"method": "GET"
+			},
+			{
+				"id": "0954ada6-ef95-4cba-9665-09ccbcbed593",
+				"method": "POST"
+			},
+			{
+				"id": "b59bd487-3644-4f7e-9f6e-f77f0e337616",
+				"method": "GET"
+			}
+		]
+	}
+}

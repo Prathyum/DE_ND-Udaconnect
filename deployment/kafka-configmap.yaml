@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kafka-env
+data:
+  TOPIC_NAME: "locations"
+  KAFKA_SERVER: "udaconnect-kafka:9092"
