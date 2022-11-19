@@ -79,22 +79,31 @@ Afterwards, you can test that `kubectl` works by running a command like `kubectl
 1. `kubectl apply -f deployment/db-configmap.yaml` - Set up environment variables for the pods
 2. `kubectl apply -f deployment/db-secret.yaml` - Set up secrets for the pods
 3. `kubectl apply -f deployment/postgres.yaml` - Set up a Postgres database running PostGIS
-4. `kubectl apply -f deployment/udaconnect-api.yaml` - Set up the service and deployment for the API
-5. `kubectl apply -f deployment/udaconnect-app.yaml` - Set up the service and deployment for the web app
-6. `sh scripts/run_db_command.sh <POD_NAME>` - Seed your database against the `postgres` pod. (`kubectl get pods` will give you the `POD_NAME`)
+4. `kubectl apply -f deployment/kafka-configmap.yaml` - Set up environment variables for kafka
+5. `sh kafka.sh` - Set up a Kafka cluster using helm
+6. `kubectl apply -f deployment/connection-api.yaml` - Set up the service and deployment for the Connection REST API
+7. `kubectl apply -f deployment/location-api.yaml` - Set up the service and deployment for the Location REST API
+8. `kubectl apply -f deployment/person-api.yaml` - Set up the service and deployment for the Person REST API
+9. `kubectl run udaconnect-kafka-client --restart='Never' --image docker.io/bitnami/kafka:2.8.1-debian-10-r0 --namespace default --command -- sleep infinity` - Set up a Kafka client pod
+10. `kubectl exec --tty -i udaconnect-kafka-client --namespace default -- kafka-topics.sh --create --topic locations  --bootstrap-server udaconnect-kafka:9092` - Set up the 'locations' Kafka topic as TOPIC NAME
+11. `kubectl apply -f deployment/location-producer.yaml` - Set up the service and deployment for the Location gRPC producer 
+12. `kubectl apply -f deployment/location-consumer.yaml` - Set up the deployment for the Location consumer 
+13. `kubectl apply -f deployment/udaconnect-app.yaml` - Set up the service and deployment for the web app
+14. `sh scripts/run_db_command.sh <POD_NAME>` - Seed your database against the `postgres` pod. (`kubectl get pods` will give you the `POD_NAME`)
 
 Manually applying each of the individual `yaml` files is cumbersome but going through each step provides some context on the content of the starter project. In practice, we would have reduced the number of steps by running the command against a directory to apply of the contents: `kubectl apply -f deployment/`.
 
 Note: The first time you run this project, you will need to seed the database with dummy data. Use the command `sh scripts/run_db_command.sh <POD_NAME>` against the `postgres` pod. (`kubectl get pods` will give you the `POD_NAME`). Subsequent runs of `kubectl apply` for making changes to deployments or services shouldn't require you to seed the database again!
 
 ### Verifying it Works
-Once the project is up and running, you should be able to see 3 deployments and 3 services in Kubernetes:
-`kubectl get pods` and `kubectl get services` - should both return `udaconnect-app`, `udaconnect-api`, and `postgres`
+Once the project is up and running, you should be able to see services in Kubernetes:
+`kubectl get pods` and `kubectl get services` - should both return what is under docs/screenshots
 
 
 These pages should also load on your web browser:
-* `http://localhost:30001/` - OpenAPI Documentation
-* `http://localhost:30001/api/` - Base path for API
+* `http://localhost:30004/` - OpenAPI Person API
+* `http://localhost:30003/` - OpenAPI Connection API
+* `http://localhost:30002/` - OpenAPI Location API 
 * `http://localhost:30000/` - Frontend ReactJS Application
 
 #### Deployment Note
