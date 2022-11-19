@@ -1,128 +1,129 @@
 {
-	"id": "f41cfb1d-15fb-41d6-b7c5-f80dcc571416",
-	"name": "Udaconnect",
-	"timestamp": "2022-11-18T19:17:58.994Z",
-	"collection_id": "24509492-5f070861-6236-470d-acc1-c15d79e70421",
-	"folder_id": 0,
-	"environment_id": "0",
-	"totalPass": 0,
-	"totalFail": 0,
-	"results": [
+	"variables": [],
+	"info": {
+		"name": "postman",
+		"_postman_id": "f21fa14a-b310-3cc9-37d7-921437a37466",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "2804a4ca-2d71-4030-a9ee-68088d5a94eb",
-			"name": "Person API - GET Request doc",
-			"url": "http://localhost:30004/api/persons",
-			"time": 13,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
+			"name": "Person API - GET Request",
+			"request": {
+				"url": "http://localhost:30004/api/persons",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
 			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				13
-			],
-			"allTests": [
-				{}
-			]
+			"response": []
 		},
 		{
-			"id": "d1c9e5ab-da81-4439-8830-a7b4ebafcd35",
-			"name": "Person API - POST Request doc",
-			"url": "http://localhost:30004/api/persons",
-			"time": 27,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
+			"name": "Person API - POST Request",
+			"request": {
+				"url": "http://localhost:30004/api/persons",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"first_name\": \"Prathyum\",\n    \"id\": 100,\n    \"company_name\": \"SoapBox\",\n     \"last_name\": \"Ramesh\"\n}"
+				},
+				"description": ""
 			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				27
-			],
-			"allTests": [
-				{}
-			]
+			"response": []
 		},
 		{
-			"id": "27c51c59-b394-47be-88ed-27e84166f69e",
-			"name": "Location API - GET Request doc",
-			"url": "http://localhost:30002/api/locations",
-			"time": 61,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
+			"name": "Person API - Get id = 1",
+			"request": {
+				"url": "http://localhost:30004/api/persons/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
 			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				61
-			],
-			"allTests": [
-				{}
-			]
+			"response": []
 		},
 		{
-			"id": "0954ada6-ef95-4cba-9665-09ccbcbed593",
-			"name": "Location API - POST Request doc",
-			"url": "http://localhost:30002/api/locations",
-			"time": 30,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
+			"name": "Location API - Get id = 1",
+			"request": {
+				"url": "http://localhost:30002/api/locations/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Get for Location 1, against location api"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				30
-			],
-			"allTests": [
-				{}
-			]
+			"response": []
 		},
 		{
-			"id": "b59bd487-3644-4f7e-9f6e-f77f0e337616",
-			"name": "Connection API - GET Request doc",
-			"url": "http://localhost:30003/api/persons/1/connection?distance=5&end_date=2020-12-30&start_date=2020-01-01",
-			"time": 47,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
+			"name": "Location API - Post a single location",
+			"request": {
+				"url": "http://localhost:30002/api/locations",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 5,\n  \"person_id\": 5,\n  \"latitude\": \"-100.785\",\n  \"longitude\": \"73.558\",\n  \"creation_time\": \"2012-04-17T10:30:12\"\n}"
+				},
+				"description": ""
 			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				47
-			],
-			"allTests": [
-				{}
-			]
+			"response": []
+		},
+		{
+			"name": "Connection API - Get id of person 5",
+			"request": {
+				"url": {
+					"raw": "http://localhost:30003/api/persons/1/connection?start_date=2020-01-01&end_date=2020-12-30&distance=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30003",
+					"path": [
+						"api",
+						"persons",
+						"1",
+						"connection"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2020-01-01",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "end_date",
+							"value": "2020-12-30",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "distance",
+							"value": "5",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Get for Connection for person 3"
+			},
+			"response": []
 		}
-	],
-	"count": 1,
-	"totalTime": 178,
-	"collection": {
-		"requests": [
-			{
-				"id": "2804a4ca-2d71-4030-a9ee-68088d5a94eb",
-				"method": "GET"
-			},
-			{
-				"id": "d1c9e5ab-da81-4439-8830-a7b4ebafcd35",
-				"method": "POST"
-			},
-			{
-				"id": "27c51c59-b394-47be-88ed-27e84166f69e",
-				"method": "GET"
-			},
-			{
-				"id": "0954ada6-ef95-4cba-9665-09ccbcbed593",
-				"method": "POST"
-			},
-			{
-				"id": "b59bd487-3644-4f7e-9f6e-f77f0e337616",
-				"method": "GET"
-			}
-		]
-	}
+	]
 }
