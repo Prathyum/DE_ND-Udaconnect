@@ -104,7 +104,14 @@ These pages should also load on your web browser:
 * `http://localhost:30004/` - OpenAPI Person API
 * `http://localhost:30003/` - OpenAPI Connection API
 * `http://localhost:30002/` - OpenAPI Location API 
-* `http://localhost:30000/` - Frontend ReactJS Application
+
+* `http://localhost:30000/` - UdaConnect Frontend ReactJS Application (read only)
+
+Postman collection:
+
+* Check GET and POST of persons api (by viewing/adding persons).
+* Check GET and POST of location api (by viewing/adding locations).
+* Check Connection with date and location data.
 
 #### Deployment Note
 You may notice the odd port numbers being served to `localhost`. [By default, Kubernetes services are only exposed to one another in an internal network](https://kubernetes.io/docs/concepts/services-networking/service/). This means that `udaconnect-app` and `udaconnect-api` can talk to one another. For us to connect to the cluster as an "outsider", we need to a way to expose these services to `localhost`.
